@@ -1,19 +1,93 @@
 <!DOCTYPE html>
 <html lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>p5.js example</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.css"
+    />
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>p5.js example</title>
-  <link rel="stylesheet" href="css/main.css">
-  <script src="vendor/p5.min.js"></script>
-  <script src="js/anel.js"></script>
-  <script src="js/sketch.js"></script>
-</head>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/ui.css" />
+    <script src="vendor/p5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.js"></script>
+    <script src="js/anel.js"></script>
+    <script src="js/sketch.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/ui.js"></script>
+    <script type="text/javascript">
+      const menu_opt = [];
 
-<body>
-  <main>
-  </main>
-</body>
+      for (let i = 1; i <= 1; i++) {
+        let menu_item = {
+          no_ui_buttons: true, // pra esconder o "+"/"-" das abas do menu
+          // logo: true, // ui.js, linha 38  - gambiarra pra por um logo
+          title: "NIVEL " + i,
+          items: [
+            {
+              type: "checkbox",
+              name: "ativo",
+              text: "Ativo",
+              value: true,
+            },
+            {
+              type: "slider",
+              name: "quantidade",
+              text: "Quantidade de elementos",
+              min: 16,
+              max: 100,
+              value: 16,
+              callback: callback,
+            },
+            {
+              type: "slider",
+              name: "base",
+              text: "Base largura",
+              min: 10,
+              max: 100,
+              value: 16,
+              callback: callback,
+            },
+            {
+              type: "slider",
+              name: "topo",
+              text: "Topo largura",
+              min: 10,
+              max: 100,
+              value: 16,
+              callback: callback,
+            },
+            {
+              type: "slider",
+              name: "altura",
+              text: "Altura",
+              min: 10,
+              max: 200,
+              value: 100,
+              callback: callback,
+            },
+          ],
+        };
+        menu_opt.push(menu_item)
+      }
 
+      const ui_right = new UI_window({
+        name: "menu",
+        // css: {
+        //   left: 'unset',
+        //   right: '0',
+        // },
+        sections: menu_opt,
+        data: ui_data,
+      });
+    </script>
+  </head>
+
+  <body>
+    <main></main>
+  </body>
 </html>
