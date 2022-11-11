@@ -1,9 +1,10 @@
 function save_svg() {
   var date = new Date().toLocaleString();
-  var cnv = createGraphics(currentImage.width, currentImage.height, SVG);
+  var cnv = createGraphics(pg.width, pg.height, SVG);
   cnv.pixelDensity(1);
-  cnv.background(cor_bg)
-  qTree.save(cnv)
+  niveis.forEach(n => {
+    n.desenha(cnv);
+  });
 
   cnv.save("PCD-BR_" + date + ".svg");
 }
