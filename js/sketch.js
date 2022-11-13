@@ -13,7 +13,7 @@ function setup() {
 }
 
 function draw() {
-  pg.background(200);
+  pg.background(200); 
   niveis.forEach(n => {
     n.desenha(pg);
   });
