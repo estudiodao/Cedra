@@ -112,6 +112,7 @@ class UI_window {
             min: item.min,
             max: item.max,
             start: item.value,
+            step: item.step,
             onChange: (value) => {
               let input = document.getElementById('input_' + item.name);
               input.value = value;
