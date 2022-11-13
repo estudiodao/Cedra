@@ -17,8 +17,11 @@ class Anel {
         let angulo = i * TWO_PI/this.quantidade;
         c.push();
         c.translate(width/2, height/2);
+        let escala = width / (raio_total() * 2);
+        if(ui_data.ajustar) {
+          pg.scale(escala);
+        }
         c.rotate(angulo + this.angulo_inicial);
-        
         c.beginShape();
         c.fill(0);
         c.noStroke();
@@ -35,3 +38,8 @@ class Anel {
 
 }
 
+function raio_total() {
+  let index_ultimo = niveis.length -1;
+  let total = niveis[index_ultimo].raio_interno + niveis[index_ultimo].altura;
+  return total;
+}
