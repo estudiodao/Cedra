@@ -20,21 +20,23 @@
     <script type="text/javascript">
       const menu_opt = [];
 
-      for (let i = 1; i <= 1; i++) {
+      for (let i = 0; i < 4; i++) {
+        let prefix = `nv${i + 1}_`;
         let menu_item = {
-          no_ui_buttons: true, // pra esconder o "+"/"-" das abas do menu
+          no_ui_buttons: false, // pra esconder o "+"/"-" das abas do menu
           // logo: true, // ui.js, linha 38  - gambiarra pra por um logo
           title: "NIVEL " + i,
           items: [
             {
               type: "checkbox",
-              name: "ativo",
+              name: prefix + "ativo",
               text: "Ativo",
               value: true,
+              callback: callback,
             },
             {
-              type: "slider",
-              name: "quantidade",
+              type: "number",
+              name: prefix + "quantidade",
               text: "Quantidade de elementos",
               min: 16,
               max: 100,
@@ -42,26 +44,26 @@
               callback: callback,
             },
             {
-              type: "slider",
-              name: "base",
+              type: "number",
+              name: prefix + "base",
               text: "Base largura",
               min: 10,
               max: 100,
-              value: 16,
+              value: 20,
               callback: callback,
             },
             {
-              type: "slider",
-              name: "topo",
+              type: "number",
+              name: prefix + "topo",
               text: "Topo largura",
               min: 10,
               max: 100,
-              value: 16,
+              value: 10,
               callback: callback,
             },
             {
-              type: "slider",
-              name: "altura",
+              type: "number",
+              name: prefix + "altura",
               text: "Altura",
               min: 10,
               max: 200,
@@ -69,15 +71,35 @@
               callback: callback,
             },
             {
-              type: "button",
-              name: "botao",
-              text: "Botão",
-              callback: save_svg,
+              type: "number",
+              name: prefix + "raio_interno",
+              text: "Raio Interno",
+              min: 10,
+              max: 1000,
+              value: 100 + (100 * i),
+              callback: callback,
             }
-          ],
+          ]
         };
         menu_opt.push(menu_item)
       }
+
+      let menu_item = {
+          no_ui_buttons: false, // pra esconder o "+"/"-" das abas do menu
+          // logo: true, // ui.js, linha 38  - gambiarra pra por um logo
+          title: "SALVAR",
+          items: [
+              {
+              type: "button",
+              name: "salvar_svg",
+              text: "Salvar SVG",
+              callback: save_svg,
+            }
+          ]
+        };
+        menu_opt.push(menu_item);
+
+      
 
       const ui_right = new UI_window({
         name: "menu",
