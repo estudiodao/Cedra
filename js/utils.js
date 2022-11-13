@@ -6,7 +6,17 @@ function save_svg() {
     n.desenha(cnv);
   });
 
-  cnv.save("PCD-BR_" + date + ".svg");
+  let config = `
+  ${ui_data.quantidade}_
+  ${ui_data.base}_
+  ${ui_data.topo}_
+  ${ui_data.raio_interno}_
+  ${ui_data.nv1_altura}_
+  ${ui_data.nv2_altura}_
+  ${ui_data.nv3_altura}_
+  ${ui_data.nv4_altura} 
+  `
+  cnv.save("CEDRA_" + config + ".svg");
 }
 
 function save_png() {
