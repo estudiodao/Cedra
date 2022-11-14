@@ -17,10 +17,9 @@ function draw() {
   niveis.forEach(n => {
     n.desenha(pg);
   });
-  
   clear();
   image(pg, 0, 0, pg.width, pg.height);
-  
+
 }
 
 function callback(){
