@@ -19,7 +19,7 @@ class Anel {
         c.translate(width/2, height/2);
         let escala = width / (raio_total() * 2);
         if(ui_data.ajustar) {
-          pg.scale(escala);
+          c.scale(escala);
         }
         c.rotate(angulo + this.angulo_inicial);
         c.beginShape();
