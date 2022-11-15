@@ -1,6 +1,7 @@
 function save_svg() {
   var date = new Date().toLocaleString();
   var cnv = createGraphics(pg.width, pg.height, SVG);
+  
   cnv.pixelDensity(1);
   niveis.forEach(n => {
     n.desenha(cnv);
